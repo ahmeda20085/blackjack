@@ -1,23 +1,23 @@
 const NUMBER_OF_DICE = 5;
 let count = {};
 let worpen = [];
-const txtThreeOfAKind = document.getElementById('txtThreeOfAKind');
+//const txtThreeOfAKind = document.getElementById('txtThreeOfAKind');
 document.getElementById("txtThreeOfAKind").innerHTML = threeOfAKind();
 
-const txtFourOfAKind = document.getElementById('txtFourOfAKind')
+//const txtFourOfAKind = document.getElementById('txtFourOfAKind')
 document.getElementById('txtFourOfAKind').innerHTML = fourOfAKind();
 
-const txtFullHouse = document.getElementById('txtFullHouse')
+//const txtFullHouse = document.getElementById('txtFullHouse')
 document.getElementById('txtFullHouse').innerHTML = FullHouse();
 
 const txtKleineStraat = document.getElementById('txtKleineStraat')
 document.getElementById('txtKleineStraat').innerHTML = Kleinestraat();
 
-const txtGrotestraat = document.getElementById('txtGrotestraat')
+//Const txtGrotestraat = document.getElementById('txtGrotestraat')
 document.getElementById('txtGrotestraat').innerHTML = Grotestraat();
 
 
-const txtTopscore = document.getElementById('txtTopscore')
+//const txtTopscore = document.getElementById('txtTopscore')
 document.getElementById('txtTopscore').innerHTML = topscore();
 
 const txtChange = document.getElementById('txtChange');
