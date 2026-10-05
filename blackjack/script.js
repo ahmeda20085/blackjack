@@ -103,4 +103,3 @@ const deelknop = document.getElementById('Delen');
 deelknop.textContent = 'Delen';
 deelknop.onclick = delen;
 
-//test
