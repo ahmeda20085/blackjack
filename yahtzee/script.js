@@ -7,7 +7,7 @@ document.getElementById("txtThreeOfAKind").innerHTML = threeOfAKind();
 const txtFourOfAKind = document.getElementById('txtFourOfAKind')
 document.getElementById('txtFourOfAKind').innerHTML = fourOfAKind();
 
-//const txtFullHouse = document.getElementById('txtFullHouse')
+const txtFullHouse = document.getElementById('txtFullHouse')
 document.getElementById('txtFullHouse').innerHTML = FullHouse();
 
 const txtKleineStraat = document.getElementById('txtKleineStraat')
