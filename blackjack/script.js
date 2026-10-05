@@ -102,3 +102,9 @@ const deelknop = document.getElementById('Delen');
 
 deelknop.textContent = 'Delen';
 deelknop.onclick = delen;
+
+function aas() {
+    if (drawcard === 'aas') {
+        return 'aas gevonden'
+    } else return 0;
+}
