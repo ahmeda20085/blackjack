@@ -133,7 +133,6 @@ function berekenScore(hand) {
 function toonSpelerscore() {
     const score = berekenScore(PlayerHand);
 
-
     if (score === 21) {
         'Blackjack Je hebt gewonnen.';
         deelknop.disabled = true;
@@ -144,6 +143,6 @@ function toonSpelerscore() {
         pasKnop.style.display = 'none';
     }
 
-    document.getElementById('score').textContent = `Score: ${score}`;
+    document.getElementById('score').textContent = `Jouw Kaarten: ${score}`;
 }
 
