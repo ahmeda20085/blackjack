@@ -70,6 +70,8 @@ function delen() {
     console.log(playercard1);
     console.log(playercard2);
 
+    console.log(berekenScore(DealerHand));
+    console.log(berekenScore(PlayerHand));
 
     deelknop.textContent = 'Hit';
     deelknop.onclick = hit;
@@ -103,9 +105,43 @@ const deelknop = document.getElementById('Delen');
 deelknop.textContent = 'Delen';
 deelknop.onclick = delen;
 
-function aas(kaart) {
-    if (kaart.waarde === 'aas') {
-        return 'aas gevonden';
+function berekenScore(hand) {
+    let score = 0;
+    let aantalazen = 0;
+
+    for (const kaart of hand) {
+        if (kaart.waarde === 'aas') {
+            score += 11;
+            aantalazen++;
+        } else if (['boer', 'vrouw', 'heer'].includes(kaart.waarde)) {
+            score += 10;
+        } else {
+            score += Number(kaart.waarde);
+        }
     }
-    return 'found nothing';
-};
+
+    while (score > 21 && aantalazen > 0) {
+        score -= 10;
+        aantalazen--;
+    }
+
+    return score;
+}
+
+function toonSpelerscore() {
+    const score = berekenScore(PlayerHand);
+    let status;
+
+    if (score === 21) {
+        status = 'Blackjack gewonnen.';
+        deelknop.disabled = true;
+        pasKnop.style.display = 'none';
+    } else if (score > 21) {
+        status = 'verloren';
+        deelknop.disabled = true;
+        pasKnop.style.display = 'none';
+    }
+
+    document.getElementById('PlayerCards').textContent = `Jouw Kaarten: ${score} `;
+}
+
