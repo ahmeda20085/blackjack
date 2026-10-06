@@ -50,6 +50,8 @@ function drawcard() {
     img.width = 125;
     img.height = 200;
 
+
+
     return kaart;
 
 }
@@ -70,8 +72,8 @@ function delen() {
     console.log(playercard1);
     console.log(playercard2);
 
-    console.log(berekenScore(DealerHand));
-    console.log(berekenScore(PlayerHand));
+    console.log(berekenScore)
+    console.log(toonSpelerscore())
 
     deelknop.textContent = 'Hit';
     deelknop.onclick = hit;
@@ -130,18 +132,18 @@ function berekenScore(hand) {
 
 function toonSpelerscore() {
     const score = berekenScore(PlayerHand);
-    let status;
+
 
     if (score === 21) {
-        status = 'Blackjack gewonnen.';
+        'Blackjack Je hebt gewonnen.';
         deelknop.disabled = true;
         pasKnop.style.display = 'none';
     } else if (score > 21) {
-        status = 'verloren';
+        'Je hebt verloren';
         deelknop.disabled = true;
         pasKnop.style.display = 'none';
     }
 
-    document.getElementById('PlayerCards').textContent = `Jouw Kaarten: ${score} `;
+    document.getElementById('score').textContent = `Score: ${score}`;
 }
 
