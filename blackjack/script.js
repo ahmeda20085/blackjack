@@ -72,7 +72,7 @@ function delen() {
     console.log(playercard1);
     console.log(playercard2);
 
-    console.log(berekenScore)
+    berekenScore(PlayerHand)
     console.log(toonSpelerscore())
 
     deelknop.textContent = 'Hit';
