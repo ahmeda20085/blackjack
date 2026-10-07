@@ -50,7 +50,6 @@ function drawcard() {
     img.width = 125;
     img.height = 200;
 
-
     return kaart;
 
 }
@@ -148,16 +147,22 @@ function toonSpelerscore() {
 function toonDealerscore() {
     const score = berekenScore(DealerHand);
 
-    if (score <= 16) {
+    if (toonDealerscore <= 16) {
         drawcard();
-        deelknop.disabled = true;
-        pasKnop.style.display = 'none';
-    } else if (toonSpelerscore === 16) {
+    } else if (toonSpelerscore && toonDealerscore === 16) {
         deelknop.disabled = 'none';
         pasKnop.style.display = 'none';
     } else if (toonDealerscore === 17) {
-        deelknop.disabled = 'none';
-        pasKnop.display = 'none'
+        deelknop.disabled = true;
+        pasKnop.disabled = true;
+    } else if (score === 21) {
+        document.getElementById('uitslag').textContent = `dealer win`
+        deelknop.disabled = true;
+        pasKnop.disabled = true;
+    } else if (score > 21) {
+        deelknop.disabled = true;
+        pasKnop.disabled = true;
+        document.getElementById('uitslag').textContent = `dealer loss`
     }
 
     document.getElementById('dealerscore').textContent = `dealer Kaarten: ${score}`;
