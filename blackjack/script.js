@@ -83,12 +83,12 @@ function delen() {
 
 function hit() {
     const nieuwekaart = drawcard();
-
     PlayerHand.push(nieuwekaart);
 
     console.log(PlayerHand);
-
+    toonSpelerscore();
 }
+
 
 function pas() {
     const nieuwekaart = drawcard();
