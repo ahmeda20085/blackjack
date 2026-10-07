@@ -51,7 +51,6 @@ function drawcard() {
     img.height = 200;
 
 
-
     return kaart;
 
 }
@@ -92,10 +91,10 @@ function hit() {
 
 function pas() {
     const nieuwekaart = drawcard();
-
     DealerHand.push(nieuwekaart);
 
     console.log(DealerHand);
+    toonDealerscore();
 }
 
 const pasKnop = document.getElementById('Pas');
@@ -134,15 +133,32 @@ function toonSpelerscore() {
     const score = berekenScore(PlayerHand);
 
     if (score === 21) {
-        'Blackjack Je hebt gewonnen.';
+        document.getElementById('uitslag').textContent = `blackjack! je hebt gewonnen`
         deelknop.disabled = true;
-        pasKnop.style.display = 'none';
+        pasKnop.disabled = true;
     } else if (score > 21) {
-        'Je hebt verloren';
+        document.getElementById('uitslag').textContent = `helaas verloren`
         deelknop.disabled = true;
         pasKnop.style.display = 'none';
     }
 
-    document.getElementById('score').textContent = `Jouw Kaarten: ${score}`;
+    document.getElementById('playerscore').textContent = `Jouw Kaarten: ${score}`;
 }
 
+function toonDealerscore() {
+    const score = berekenScore(DealerHand);
+
+    if (score <= 16) {
+        drawcard();
+        deelknop.disabled = true;
+        pasKnop.style.display = 'none';
+    } else if (toonSpelerscore === 16) {
+        deelknop.disabled = 'none';
+        pasKnop.style.display = 'none';
+    } else if (toonDealerscore === 17) {
+        deelknop.disabled = 'none';
+        pasKnop.display = 'none'
+    }
+
+    document.getElementById('dealerscore').textContent = `dealer Kaarten: ${score}`;
+}
