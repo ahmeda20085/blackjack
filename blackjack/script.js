@@ -89,12 +89,14 @@ function hit() {
 
 
 function pas() {
-    const nieuwekaart = drawcard();
-    DealerHand.push(nieuwekaart);
+    while (berekenScore(DealerHand) < 17) {
+        DealerHand.push(drawcard());
+    }
 
     console.log(DealerHand);
     toonDealerscore();
 }
+
 
 const pasKnop = document.getElementById('Pas');
 
@@ -146,24 +148,22 @@ function toonSpelerscore() {
 
 function toonDealerscore() {
     const score = berekenScore(DealerHand);
+    const spelerscore = berekenScore(PlayerHand);
 
-    if (toonDealerscore <= 16) {
-        drawcard();
-    } else if (toonSpelerscore && toonDealerscore === 16) {
-        deelknop.disabled = 'none';
-        pasKnop.style.display = 'none';
-    } else if (toonDealerscore === 17) {
-        deelknop.disabled = true;
-        pasKnop.disabled = true;
+    if (score > 21) {
+        document.getElementById('uitslag').textContent = `dealer loss`
     } else if (score === 21) {
         document.getElementById('uitslag').textContent = `dealer win`
-        deelknop.disabled = true;
-        pasKnop.disabled = true;
-    } else if (score > 21) {
-        deelknop.disabled = true;
-        pasKnop.disabled = true;
+    } else if (score > spelerscore) {
+        document.getElementById('uitslag').textContent = `dealer win`
+    } else if (score === spelerscore) {
+        document.getElementById('uitslag').textContent = `gelijkspel`
+    } else {
         document.getElementById('uitslag').textContent = `dealer loss`
     }
+
+    deelknop.disabled = true;
+    pasKnop.disabled = true;
 
     document.getElementById('dealerscore').textContent = `dealer Kaarten: ${score}`;
 }
