@@ -50,8 +50,10 @@ function drawcard() {
     img.width = 125;
     img.height = 200;
 
-    return kaart;
+    document.getElementById("DealerCards").appendChild(img);
+    document.getElementById("PlayerCards").appendChild(img);
 
+    return kaart;
 }
 
 function delen() {
@@ -71,7 +73,7 @@ function delen() {
     console.log(playercard2);
 
     berekenScore(PlayerHand)
-    console.log(toonSpelerscore())
+    toonSpelerscore()
 
     deelknop.textContent = 'Hit';
     deelknop.onclick = hit;
@@ -134,11 +136,11 @@ function toonSpelerscore() {
     const score = berekenScore(PlayerHand);
 
     if (score === 21) {
-        document.getElementById('uitslag').textContent = `blackjack! je hebt gewonnen`
+        document.getElementById('uitslag').textContent = `Speler gewonnen`
         deelknop.disabled = true;
         pasKnop.disabled = true;
     } else if (score > 21) {
-        document.getElementById('uitslag').textContent = `helaas verloren`
+        document.getElementById('uitslag').textContent = `Speler verloren`
         deelknop.disabled = true;
         pasKnop.style.display = 'none';
     }
@@ -151,15 +153,15 @@ function toonDealerscore() {
     const spelerscore = berekenScore(PlayerHand);
 
     if (score > 21) {
-        document.getElementById('uitslag').textContent = `dealer loss`
+        document.getElementById('uitslag').textContent = `Je hebt Gewonnen`
     } else if (score === 21) {
-        document.getElementById('uitslag').textContent = `dealer win`
+        document.getElementById('uitslag').textContent = `Helaas Je hebt verloren`
     } else if (score > spelerscore) {
-        document.getElementById('uitslag').textContent = `dealer win`
+        document.getElementById('uitslag').textContent = `Je hebt Verloren`
     } else if (score === spelerscore) {
-        document.getElementById('uitslag').textContent = `gelijkspel`
+        document.getElementById('uitslag').textContent = `Gelijkspel`
     } else {
-        document.getElementById('uitslag').textContent = `dealer loss`
+        document.getElementById('uitslag').textContent = `Dealer Gewonnen`
     }
 
     deelknop.disabled = true;
