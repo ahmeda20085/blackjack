@@ -1,5 +1,6 @@
 let DealerHand = [];
 let PlayerHand = [];
+let endgame = true;
 
 const imgscr = "52-kaarten/";
 const Nummers = ['aas', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
@@ -153,19 +154,23 @@ function toonDealerscore() {
     const spelerscore = berekenScore(PlayerHand);
 
     if (score > 21) {
-        document.getElementById('uitslag').textContent = `Je hebt Gewonnen`
+        document.getElementById('uitslag').textContent = `Je hebt Gewonnen!`
     } else if (score === 21) {
-        document.getElementById('uitslag').textContent = `Helaas Je hebt verloren`
+        document.getElementById('uitslag').textContent = `Helaas! Je hebt verloren`
     } else if (score > spelerscore) {
-        document.getElementById('uitslag').textContent = `Je hebt Verloren`
+        document.getElementById('uitslag').textContent = `Je hebt Verloren!`
     } else if (score === spelerscore) {
-        document.getElementById('uitslag').textContent = `Gelijkspel`
+        document.getElementById('uitslag').textContent = `Gelijkspel!`
     } else {
-        document.getElementById('uitslag').textContent = `Dealer Gewonnen`
+        document.getElementById('uitslag').textContent = `Je hebt Gewonnen!`
     }
 
     deelknop.disabled = true;
     pasKnop.disabled = true;
 
     document.getElementById('dealerscore').textContent = `dealer Kaarten: ${score}`;
+}
+
+function endgame() {
+
 }
