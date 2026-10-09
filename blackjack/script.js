@@ -1,6 +1,6 @@
 let DealerHand = [];
 let PlayerHand = [];
-let endgame = true;
+let endgames;
 
 const imgscr = "52-kaarten/";
 const Nummers = ['aas', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
@@ -171,6 +171,12 @@ function toonDealerscore() {
     document.getElementById('dealerscore').textContent = `dealer Kaarten: ${score}`;
 }
 
-function endgame() {
+function dealerverborgen() {
+    const img = document.createElement("img");
 
+    img.src = `${imgscr}${achterkant - kaart}.png`;
+    img.width = 125;
+    img.height = 200;
+
+    document.getElementById("DealerCards").appendChild(img);
 }
